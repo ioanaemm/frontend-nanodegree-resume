@@ -87,6 +87,10 @@ function logClicks(x,y) {
 
 $(document).click(function(loc) {
   // your code goes here!
+  //var x = loc.pageX;
+  //var y = loc.pageY;
+  //logClicks(x,y);
+  console.log(loc.pageX, loc.pageY);
 });
 
 
@@ -103,9 +107,6 @@ var map;    // declares a global map variable
 Start here! initializeMap() is called when page is loaded.
 */
 function initializeMap() {
-
-  var locations;
-
   var mapOptions = {
     disableDefaultUI: true
   };
@@ -115,7 +116,6 @@ function initializeMap() {
   appended to #mapDiv in resumeBuilder.js.
   */
   map = new google.maps.Map(document.querySelector('#map'), mapOptions);
-
 
   /*
   locationFinder() returns an array of every location string from the JSONs
@@ -128,6 +128,7 @@ function initializeMap() {
 
     // adds the single location property from bio to the locations array
     locations.push(bio.contacts.location);
+
 
     // iterates through school locations and appends each location to
     // the locations array. Note that forEach is used for array iteration
@@ -211,15 +212,17 @@ function initializeMap() {
 
     // Iterates through the array of locations, creates a search object for each location
       locations.forEach(function(place){
-      // the search request object
-      var request = {
-        query: place
-      };
+        //console.log(place);
+        // the search request object
+        var request = {
+          query: place
+        };
 
-      // Actually searches the Google Maps API for location data and runs the callback
-      // function with the search results after each search.
-      service.textSearch(request, callback);
-    });
+        // Actually searches the Google Maps API for location data and runs the callback
+        // function with the search results after each search.
+        service.textSearch(request, callback);
+      });
+
   }
 
   // Sets the boundaries of the map based on pin locations
@@ -239,11 +242,11 @@ Uncomment the code below when you're ready to implement a Google Map!
 */
 
 // Calls the initializeMap() function when the page loads
-//window.addEventListener('load', initializeMap);
+window.addEventListener('load', initializeMap);
 
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
-//window.addEventListener('resize', function(e) {
+window.addEventListener('resize', function(e) {
   //Make sure the map bounds get updated on page resize
-//  map.fitBounds(mapBounds);
-//});
+ map.fitBounds(mapBounds);
+});
