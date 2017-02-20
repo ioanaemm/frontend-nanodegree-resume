@@ -11,7 +11,7 @@ h5,
 h6 {
     padding: 0;
     margin: 0;
-    font-family: "Roboto", sans-serif;
+    font-family: "Lato", sans-serif;
 }
 
 .clear-fix {
@@ -25,16 +25,17 @@ h6 {
 }
 
 h1 {
-    font-size: 40px;
-    color: #f5a623;
+    font-size: 35px;
+    color: #1abc9c;
     line-height: 48px;
     display: inline;
+    font-weight: 400;
 }
 
 h2 {
     font-weight: bold;
     font-size: 24px;
-    color: #999;
+    color: #1abc9c;
     line-height: 29px;
     padding: 10px;
 }
@@ -61,10 +62,11 @@ h5 {
 }
 
 .date-text {
+    font-size: 13px;
+    font-weight: 400;
     font-style: italic;
-    font-size: 14px;
     color: #999;
-    line-height: 16px;
+    line-height: 18px;
     float: left;
 }
 
@@ -78,7 +80,7 @@ h5 {
 
 p {
     font-size: 14px;
-    color: #333;
+    color: #2c3e50;
     line-height: 21px;
 }
 
@@ -97,21 +99,24 @@ a {
 }
 
 #skills-h3 {
-    color: #f5ae23;
+    color: #1abc9c;
     display: none;
 }
 
-.orange {
-    background-color: #f5ae23;
+.footerHeader {
+    background-color: #16a085;
+    color: #ecf0f1;
+    font-weight: 400;
 }
 
-.orange-text {
-    color: #f5ae23;
+.contact-info {
+    color: #16a085;
+    font-weight: 700;
 }
 
-.white-text {
-    font-weight: bold;
-    color: #fff;
+.personal-info {
+    font-weight: 100;
+    color: #ecf0f1;
 }
 
 .gray {
@@ -126,7 +131,7 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-    background-color: #484848;
+    background-color: #333;
 }
 
 .flex-box {
@@ -158,6 +163,9 @@ ul {
     padding: 10px;
     width: 200px;
     display: none;
+    border: 2px solid #919191;
+    border-radius: 5px;
+    margin: 5px;
 }
 
 img {
@@ -165,13 +173,21 @@ img {
 }
 
 span {
-    padding: 5px;
+    padding: 7px;
+    color: #ecf0f1;
+    font-weight: 300;
 }
 
 #lets-connect {
     text-align: center;
 }
 
+.work-entry a,
+.project-entry a,
+.education-entry a {
+    color: #e67e22;
+    font-weight: 400;
+}
 /* Media queries to handle various device widths */
 
 @media only screen and (max-width: 1024px) {
@@ -216,5 +232,6 @@ span {
     #skills-h3,
   .biopic {
         display: block;
+        font-weight: 700 !important;
     };
 }

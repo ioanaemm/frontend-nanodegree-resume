@@ -1,11 +1,13 @@
+// this object stores my contact details
 var bio = {
     name: "Ioana Mitelea",
     role: "Front-End Developer",
     welcomeMessage: "Hi there!",
-    bioPic: "images/me.jpg",
+    biopic: "images/me.jpg",
     contacts: {
         email: "miteleaioana@gmail.com",
         mobile: "7397 554781",
+        github: "ioanaemm",
         location: "London, UK"
     },
     skills: [
@@ -13,31 +15,31 @@ var bio = {
     ]
 };
 
+var data = "%data%";
 bio.display = function() {
-    var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+    var formattedRole = HTMLheaderRole.replace(data, bio.role);
     $("#header").prepend(formattedRole);
-    var formattedName = HTMLheaderName.replace("%data%", bio.name);
+    var formattedName = HTMLheaderName.replace(data, bio.name);
     $("#header").prepend(formattedName);
-    var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-    $("#topContacts").append(formattedEmail);
-    var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-    $("#topContacts").append(formattedMobile);
-    var formattedCity = HTMLlocation.replace("%data%", bio.contacts.location);
-    $("#topContacts").append(formattedCity);
-    var formattedImage = HTMLbioPic.replace("%data%", bio.bioPic);
+    var formattedEmail = HTMLemail.replace(data, bio.contacts.email);
+    var formattedMobile = HTMLmobile.replace(data, bio.contacts.mobile);
+    var formattedGithubName = HTMLgithub.replace(data, bio.contacts.github);
+    var formattedCity = HTMLlocation.replace(data, bio.contacts.location);
+    $("#topContacts, #footerContacts").append(formattedEmail, formattedMobile, formattedGithubName, formattedCity);
+    var formattedImage = HTMLbioPic.replace(data, bio.biopic);
     $("#header").append(formattedImage);
-    var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+    var formattedWelcomeMessage = HTMLwelcomeMsg.replace(data, bio.welcomeMessage);
     $("#header").append(formattedWelcomeMessage);
     $("#header").append(HTMLskillsStart);
     bio.skills.forEach(function(skill) {
-        var formattedSkill = HTMLskills.replace("%data%", skill);
+        var formattedSkill = HTMLskills.replace(data, skill);
         $("#skills").append(formattedSkill);
     });
 };
 
 bio.display();
 
-
+//this object stores my degrees
 
 var education = {
     schools: [{
@@ -45,14 +47,14 @@ var education = {
             location: "Husi, Vaslui, Romania",
             degree: "High School Diploma",
             dates: "2008 - 2012",
-            major: "Philology"
+            majors: "Philology"
         },
         {
             name: "Faculty of Psychology, University of Bucharest",
             location: "Bucharest",
             degree: "BA",
             dates: "2013 - 2016",
-            major: "Psychological testing"
+            majors: "Psychological testing"
         }
     ],
     onlineCourses: [{
@@ -66,30 +68,32 @@ var education = {
 education.display = function() {
     education.schools.forEach(function(school) {
         $("#education").append(HTMLschoolStart);
-        var formattedSchoolName = HTMLschoolName.replace("%data%", school.name);
-        var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", school.degree);
+        var formattedSchoolName = HTMLschoolName.replace(data, school.name);
+        var formattedSchoolDegree = HTMLschoolDegree.replace(data, school.degree);
         $(".education-entry:last").append(formattedSchoolName + formattedSchoolDegree);
-        var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", school.location);
+        var formattedSchoolLocation = HTMLschoolLocation.replace(data, school.location);
         $(".education-entry:last").append(formattedSchoolLocation);
-        var formattedDates = HTMLschoolDates.replace("%data%", school.dates);
+        var formattedDates = HTMLschoolDates.replace(data, school.dates);
         $(".education-entry:last").append(formattedDates);
-        var formattedMajor = HTMLschoolMajor.replace("%data%", school.major);
-        $(".education-entry:last").append(formattedMajor);
+        var formattedMajors = HTMLschoolMajor.replace(data, school.majors);
+        $(".education-entry:last").append(formattedMajors);
     });
     $("#education").append(HTMLonlineClasses);
     education.onlineCourses.forEach(function(course) {
         $("#education").append(HTMLschoolStart);
-        var formattedTitle = HTMLonlineTitle.replace("%data%", course.title);
-        var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", course.school);
+        var formattedTitle = HTMLonlineTitle.replace(data, course.title);
+        var formattedOnlineSchool = HTMLonlineSchool.replace(data, course.school);
         $(".education-entry:last").append(formattedTitle + formattedOnlineSchool);
-        var formattedOnlineCoursesDates = HTMLonlineDates.replace("%data%", course.dates);
+        var formattedOnlineCoursesDates = HTMLonlineDates.replace(data, course.dates);
         $(".education-entry:last").append(formattedOnlineCoursesDates);
-        var formattedOnlineCoursesUrl = HTMLonlineURL.replace("%data%", course.url);
+        var formattedOnlineCoursesUrl = HTMLonlineURL.replace(data, course.url);
         $(".education-entry:last").append(formattedOnlineCoursesUrl);
     });
 };
 
 education.display();
+
+// this object stores  my previous jobs
 
 var work = {
     jobs: [{
@@ -112,11 +116,11 @@ var work = {
 work.display = function() {
     work.jobs.forEach(function(job) {
         $("#workExperience").append(HTMLworkStart);
-        var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
-        var formattedRoleTitle = HTMLworkTitle.replace("%data%", job.title);
-        var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
-        var formattedDates = HTMLworkDates.replace("%data%", job.dates);
-        var formattedDescription = HTMLworkDescription.replace("%data%", job.description);
+        var formattedEmployer = HTMLworkEmployer.replace(data, job.employer);
+        var formattedRoleTitle = HTMLworkTitle.replace(data, job.title);
+        var formattedLocation = HTMLworkLocation.replace(data, job.location);
+        var formattedDates = HTMLworkDates.replace(data, job.dates);
+        var formattedDescription = HTMLworkDescription.replace(data, job.description);
         var formattedProps = formattedEmployer + formattedRoleTitle + formattedLocation + formattedDates + formattedDescription;
         $(".work-entry:last").append(formattedProps);
     });
@@ -124,31 +128,26 @@ work.display = function() {
 
 work.display();
 
+// this object stores my projects
 
 var projects = {
     "projects": [{
             "title": "My Online Portfolio",
             "dates": "February 2016",
             "description": "Technologies used for this project are: HTML5, CSS3, Bootstrap, JavaScript and TweenMax for the animations. ",
-            "images": [{
-                "url": "https://freeiconshop.com/wp-content/uploads/edd/folder-open-flat.png",
-            }]
+            "images": ["https://freeiconshop.com/wp-content/uploads/edd/folder-open-flat.png"]
         },
         {
             "title": "Opearlo Analytics Dashboard",
             "dates": "August 2016 - November 2016",
             "description": "Technologies used for this project are: React, Redux, Recharts API, HTML5, CSS3, Bootstrap, MVC. \n Contribution to project: Charts, Graphs, Improving page responsiveness. ",
-            "images": [{
-                "url": "http://digital-monkeyz.com/ioana/graphics/portfolio/analytics.png"
-            }]
+            "images": ["http://digital-monkeyz.com/ioana/graphics/portfolio/analytics.png"]
         },
         {
             "title": "Jewelery Website",
             "dates": "January 2016",
             "description": "Technologies used for this project are: HTML5, CSS3, Bootstrap. \n  Contribution to project: Converted mock-up to functional static website.",
-            "images": [{
-                "url": "http://digital-monkeyz.com/ioana/graphics/portfolio/diamond.png"
-            }]
+            "images": ["http://digital-monkeyz.com/ioana/graphics/portfolio/diamond.png"]
         }
     ]
 };
@@ -156,34 +155,19 @@ var projects = {
 projects.display = function() {
     projects.projects.forEach(function(project) {
         $("#projects").append(HTMLprojectStart);
-        var formattedTitleOfProject = HTMLprojectTitle.replace("%data%", project.title);
+        var formattedTitleOfProject = HTMLprojectTitle.replace(data, project.title);
         $(".project-entry:last").append(formattedTitleOfProject);
-        var formattedDatesOfProject = HTMLprojectDates.replace("%data%", project.dates);
+        var formattedDatesOfProject = HTMLprojectDates.replace(data, project.dates);
         $(".project-entry:last").append(formattedDatesOfProject);
-        var formattedDescriptionOfProject = HTMLprojectDescription.replace("%data%", project.description);
+        var formattedDescriptionOfProject = HTMLprojectDescription.replace(data, project.description);
         $(".project-entry:last").append(formattedDescriptionOfProject);
-        project.images.forEach(function(image) {
-            var formattedImage = HTMLprojectImage.replace("%data%", image.url);
-            $(".project-entry:last").append(formattedImage);
-        });
+        var formattedImage = HTMLprojectImage.replace(data, project.images);
+        $(".project-entry:last").append(formattedImage);
     });
 };
 
 
 projects.display();
 
-// map
+// this part adds the a div to the HTML
 $("#mapDiv").append(googleMap);
-
-
-// footer
-function displayFooter() {
-    var formattedEmail = HTMLcontactGeneric.replace("%data%", bio.contacts.email).replace("%contact%", "email");
-    $("#footerContacts").append(formattedEmail);
-    var formattedMobile = HTMLcontactGeneric.replace("%data%", bio.contacts.mobile).replace("%contact%", "mobile");
-    $("#footerContacts").append(formattedMobile);
-    var formattedLocation = HTMLcontactGeneric.replace("%data%", bio.contacts.location).replace("%contact%", "location");
-    $("#footerContacts").append(formattedLocation);
-
-}
-displayFooter();
