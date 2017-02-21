@@ -37,7 +37,7 @@ bio.display = function() {
     });
 };
 
-bio.display();
+
 
 //this object stores my degrees
 
@@ -47,14 +47,14 @@ var education = {
             location: "Husi, Vaslui, Romania",
             degree: "High School Diploma",
             dates: "2008 - 2012",
-            majors: "Philology"
+            majors: ["Philology"]
         },
         {
             name: "Faculty of Psychology, University of Bucharest",
             location: "Bucharest",
             degree: "BA",
             dates: "2013 - 2016",
-            majors: "Psychological testing"
+            majors: ["Psychological testing"]
         }
     ],
     onlineCourses: [{
@@ -91,7 +91,6 @@ education.display = function() {
     });
 };
 
-education.display();
 
 // this object stores  my previous jobs
 
@@ -126,7 +125,6 @@ work.display = function() {
     });
 };
 
-work.display();
 
 // this object stores my projects
 
@@ -161,13 +159,22 @@ projects.display = function() {
         $(".project-entry:last").append(formattedDatesOfProject);
         var formattedDescriptionOfProject = HTMLprojectDescription.replace(data, project.description);
         $(".project-entry:last").append(formattedDescriptionOfProject);
-        var formattedImage = HTMLprojectImage.replace(data, project.images);
-        $(".project-entry:last").append(formattedImage);
+        project.images.forEach(function(image) {
+            var formattedImage = HTMLprojectImage.replace(data, image);
+            $(".project-entry:last").append(formattedImage);
+        });
+
     });
 };
 
 
-projects.display();
 
 // this part adds the a div to the HTML
 $("#mapDiv").append(googleMap);
+
+// function Calls
+
+bio.display();
+education.display();
+work.display();
+projects.display();
